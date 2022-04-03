@@ -29,9 +29,9 @@ python train.py --dataset csv --csv_train visDrone_train.csv --csv_classes class
 
 
 ### Visualize
-
+`--model_path` is a `.pt` file. Use `model_final.pt` either that has just trained or the one in Google Drive.
 ```
-python visualize_single_image.py --image_dir test_image --model_path model_final.pt --class_list classes.csv
+python visualize_single_image.py --image_dir test_images --model_path model_final.pt --class_list classes.csv
 ```
 
 
