@@ -166,7 +166,7 @@ class CSVDataset(Dataset):
         try:
             return function(value)
         except ValueError as e:
-            raise_from(ValueError(fmt.format(e)), None)
+            raise(ValueError(fmt.format(e)), None)
 
     def _open_for_csv(self, path):
         """

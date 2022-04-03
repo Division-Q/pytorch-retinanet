@@ -1,0 +1,52 @@
+och: 99 | Iteration: 1488 | Classification loss: 0.00043 | Regression loss: 0.06387 | Running loss: 0.06340
+Epoch: 99 | Iteration: 1489 | Classification loss: 0.00015 | Regression loss: 0.03686 | Running loss: 0.06336
+Epoch: 99 | Iteration: 1490 | Classification loss: 0.00010 | Regression loss: 0.02671 | Running loss: 0.06328
+Epoch: 99 | Iteration: 1491 | Classification loss: 0.00005 | Regression loss: 0.02690 | Running loss: 0.06325
+Epoch: 99 | Iteration: 1492 | Classification loss: 0.00704 | Regression loss: 0.09424 | Running loss: 0.06331
+Epoch: 99 | Iteration: 1493 | Classification loss: 0.00448 | Regression loss: 0.07921 | Running loss: 0.06339
+Epoch: 99 | Iteration: 1494 | Classification loss: 0.00052 | Regression loss: 0.03194 | Running loss: 0.06331
+Epoch: 99 | Iteration: 1495 | Classification loss: 0.00929 | Regression loss: 0.09716 | Running loss: 0.06337
+Epoch: 99 | Iteration: 1496 | Classification loss: 0.00595 | Regression loss: 0.06040 | Running loss: 0.06333
+Epoch: 99 | Iteration: 1497 | Classification loss: 0.00039 | Regression loss: 0.03631 | Running loss: 0.06336
+Epoch: 99 | Iteration: 1498 | Classification loss: 0.00304 | Regression loss: 0.07735 | Running loss: 0.06347
+Epoch: 99 | Iteration: 1499 | Classification loss: 0.00079 | Regression loss: 0.03955 | Running loss: 0.06348
+Evaluating dataset
+2000/2000
+mAP:
+ignored-regions: 0
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+pedestrian: 0.07681528098151656
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+people: 0.021368449530243562
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+bicycle: 0.04909346559957844
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+car: 0.40094375861183285
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+van: 0.2463912822118655
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+truck: 0.30851681136349784
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+tricycle: 0.10641889335747018
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+awning-tricycle: 0.05775633184407246
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+bus: 0.4646680296994158
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+motor: 0.07396420629829421
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+others: 0
+Precision:  0.24318869828456105
+Recall:  0.13690070438536697
+

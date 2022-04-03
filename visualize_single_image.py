@@ -6,6 +6,8 @@ import csv
 import cv2
 import argparse
 
+import torchvision
+
 
 def load_classes(csv_reader):
     result = {}
@@ -42,6 +44,14 @@ def detect_image(image_path, model_path, class_list):
         labels[value] = key
 
     model = torch.load(model_path)
+    '''
+    Attempted to load pretrained model on COCO dataset:
+
+    m = torch.load(model_path)
+    # from readme
+    model = torchvision.models.resnet50(num_classes=len(classes.items()))
+    model.load_state_dict(m)
+    '''
 
     if torch.cuda.is_available():
         model = model.cuda()
@@ -116,6 +126,7 @@ def detect_image(image_path, model_path, class_list):
                 cv2.rectangle(image_orig, (x1, y1), (x2, y2), color=(0, 0, 255), thickness=2)
 
             cv2.imshow('detections', image_orig)
+            cv2.imwrite('visualize_single_image.png', image_orig)
             cv2.waitKey(0)
 
 
