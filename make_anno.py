@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 
 # Set up the addresses of the dataset file.
-dir_dataset = 'D:\GWU\GWU Spring 2022\Research\dataset\VisDrone2019-DET-train'
-# dir_dataset = 'VisDrone2019-DET-train'
+#dir_dataset = 'D:\GWU\GWU Spring 2022\Research\dataset\VisDrone2019-DET-train'
+dir_dataset = 'VisDrone2019-DET-train'
 dir_labels = os.path.abspath(os.path.join(dir_dataset, 'annotations'))
 dir_imgs = os.path.abspath(os.path.join(dir_dataset, 'images'))
 paths_imgs = sorted(os.listdir(dir_imgs))
