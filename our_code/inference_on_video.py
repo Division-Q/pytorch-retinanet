@@ -41,6 +41,7 @@ if __name__ == '__main__':
 	cap = cv2.VideoCapture('../video.mp4')
 
 	start_time = time.time()
+	processing_time = 0.0
 
 	num_frame = 0
 	while (cap.isOpened()):
@@ -89,7 +90,9 @@ if __name__ == '__main__':
 
 			st = time.time()
 			scores, classification, transformed_anchors = retinanet(frame.cuda().float())
-			print('Elapsed time for this frame: {:.4f} seconds'.format(time.time() - st))
+			elapsed = time.time() - st
+			print('Elapsed time for this frame: {:.4f} seconds'.format(elapsed))
+			processing_time += elapsed
 			idxs = np.where(scores.cpu() > 0.5)
 
 			for j in range(idxs[0].shape[0]):
@@ -117,11 +120,12 @@ if __name__ == '__main__':
 	time_cost = time.time() - start_time
 	print('The video gets {} frames.'.format(num_frame))
 	print('The total time to process the video is: {:.4f} seconds.'.format(time_cost))
-	print('Average time cost for each frame: {:.4f} seconds.'.format(time_cost / num_frame))
+	print('Average time cost for each frame: {:.4f} seconds.'.format(processing_time / num_frame))
+	print('Cost to only run inference: {:.4f} seconds.'.format(processing_time))
 
 	cap.release()
 
-	out = cv2.VideoWriter('prediction.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 15, size)
+	out = cv2.VideoWriter('prediction.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 25, size)
 	for i in range(len(list_inference)):
 		out.write(list_inference[i])
 	out.release()
