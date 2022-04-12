@@ -67,17 +67,17 @@ def prep_annotations(dir_dataset):
 
     return imgs, labels
 
-# get n random image names in the dataset
-def get_names(dir_dataset, n):
-    dir_imgs = os.path.join(dir_dataset, 'images')
-    all_images = os.listdir(dir_imgs)
-    total_images = len(all_images)
-
-    # pick subset random integers in range
-    sample = np.random.choice(range(total_images), n, replace=False)
-
-    sample_images = [all_images[s].split('.')[0] for s in sample]
-    return sample_images
+## get n random image names in the dataset
+#def get_names(dir_dataset, n):
+#    dir_imgs = os.path.join(dir_dataset, 'images')
+#    all_images = os.listdir(dir_imgs)
+#    total_images = len(all_images)
+#
+#    # pick subset random integers in range
+#    sample = np.random.choice(range(total_images), n, replace=False)
+#
+#    sample_images = [all_images[s].split('.')[0] for s in sample]
+#    return sample_images
 
 def annotate_img(img_tensor, pred_dict):
     label_dict = {0: 'place-holder', # fix this

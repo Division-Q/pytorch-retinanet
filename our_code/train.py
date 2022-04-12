@@ -1,4 +1,3 @@
-import argparse
 import collections
 
 import numpy as np
@@ -8,11 +7,10 @@ import torch.optim as optim
 from torchvision import transforms
 
 from retinanet import model
-from retinanet.dataloader import CocoDataset, CSVDataset, collater, Resizer, AspectRatioBasedSampler, Augmenter, \
+from retinanet.dataloader import CSVDataset, collater, Resizer, AspectRatioBasedSampler, Augmenter, \
     Normalizer
 from torch.utils.data import DataLoader
 
-from retinanet import coco_eval
 from retinanet import csv_eval
 
 assert torch.__version__.split('.')[0] == '1'
@@ -25,7 +23,6 @@ def main(args=None):
     csv_train = 'visDrone_train.csv'
     csv_classes = 'classes.csv'
     csv_val = 'visDrone_valid.csv'
-    depth = 50
     epochs = 1 #100
 
 
