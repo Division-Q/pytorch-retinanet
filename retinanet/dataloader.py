@@ -339,8 +339,16 @@ def collater(data):
 
 class Resizer(object):
     """Convert ndarrays in sample to Tensors."""
+    def __init__(self, min_side=608, max_side=1024):
+        self.min_side = min_side
+        self.max_side = max_side
 
-    def __call__(self, sample, min_side=608, max_side=1024):
+    def __call__(self, sample, min_side=None, max_side=None):
+        if min_side == None:
+            min_side = self.min_side
+        if max_side == None:
+            max_side = self.max_side
+
         image, annots = sample['img'], sample['annot']
 
         rows, cols, cns = image.shape
@@ -398,9 +406,15 @@ class Augmenter(object):
 
 class Normalizer(object):
 
-    def __init__(self):
-        self.mean = np.array([[[0.485, 0.456, 0.406]]])
-        self.std = np.array([[[0.229, 0.224, 0.225]]])
+    def __init__(self, mean=None, std=None):
+        if mean == None:
+            self.mean = np.array([[[0.485, 0.456, 0.406]]])
+        else:
+            self.mean = np.array([[mean]])
+        if std == None:
+            self.std = np.array([[[0.229, 0.224, 0.225]]])
+        else:
+            self.std = np.array([[std]])
 
     def __call__(self, sample):
 
