@@ -181,6 +181,7 @@ def evaluate(
     for label in range(generator.num_classes()):
         false_positives = np.zeros((0,))
         true_positives  = np.zeros((0,))
+
         scores          = np.zeros((0,))
         num_annotations = 0.0
 
