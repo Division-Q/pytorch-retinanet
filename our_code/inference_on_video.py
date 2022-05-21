@@ -11,6 +11,16 @@ def draw_caption(image, box, caption):
 	cv2.putText(image, caption, (b[0], b[1] - 10), cv2.FONT_HERSHEY_PLAIN, 1, (0, 0, 0), 2)
 	cv2.putText(image, caption, (b[0], b[1] - 10), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 255), 1)
 
+def mkdir(path):
+
+	folder = os.path.exists(path)
+
+	if not folder:
+		os.makedirs(path)
+		print("---  new folder...  ---")
+		print("---  OK  ---")
+	else:
+		print("---  There is this folder!  ---")
 
 if __name__ == '__main__':
 
@@ -27,6 +37,9 @@ if __name__ == '__main__':
 			  10: 'motor',
 			  11: 'others'}
 
+	# Make a new folder to save the processed frames:
+	path_processed_frames = 'processed_frames'
+	mkdir(path_processed_frames)
 
 	# Load the model
 	retinanet = torch.load('../trained_model/model_final.pt')
@@ -35,7 +48,7 @@ if __name__ == '__main__':
 	retinanet.eval()
 
 	# A list to store the inference images
-	list_inference = []
+	# list_inference = []
 
 	# Process the video
 	cap = cv2.VideoCapture('../video.mp4')
@@ -113,9 +126,8 @@ if __name__ == '__main__':
 			# append result to the list
 			height, width, layers = frame_orig.shape
 			size = (width, height)
-			list_inference.append(frame_orig)
-
-			cv2.waitKey(0)
+			# list_inference.append(frame_orig)
+			cv2.imwrite(os.path.join(path_processed_frames, 'frame_{:05d}.png'.format(num_frame-1)), frame_orig)
 
 	time_cost = time.time() - start_time
 	print('The video gets {} frames.'.format(num_frame))
@@ -125,8 +137,8 @@ if __name__ == '__main__':
 
 	cap.release()
 
-	out = cv2.VideoWriter('prediction.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 25, size)
-	for i in range(len(list_inference)):
-		out.write(list_inference[i])
-	out.release()
+	# out = cv2.VideoWriter('prediction.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 25, size)
+	# for i in range(len(list_inference)):
+	# 	out.write(list_inference[i])
+	# out.release()
 	cv2.destroyAllWindows()
